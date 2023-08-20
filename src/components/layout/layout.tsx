@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    minHeight: "100dvh",
     paddingBottom: "1rem",
     [theme.fn.smallerThan("md")]: {
       paddingTop: "4rem",
@@ -50,7 +50,7 @@ const useStyles = createStyles((theme) => ({
     top: 0,
     left: 0,
     width: "100vw",
-    height: "100vh",
+    height: "100dvh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

@@ -13,7 +13,7 @@ import { TbBrandGithub, TbBrandLinkedin, TbMail } from "react-icons/tb";
 const useStyles = createStyles((theme) => ({
   root: {
     position: "relative",
-    height: "100vh",
+    height: "100dvh",
     padding: "1rem",
     display: "flex",
     flexDirection: "column",
