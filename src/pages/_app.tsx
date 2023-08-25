@@ -1,4 +1,5 @@
 import Provider from "@/config/providers";
+import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 
@@ -13,6 +14,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return isRendered ? (
     <Provider>
       <Component {...pageProps} />
+      <Analytics />
     </Provider>
   ) : (
     <></>
