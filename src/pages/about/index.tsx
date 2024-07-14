@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const About: NextPage = () => {
-  const { cx, classes } = useStyles();
+  const { classes } = useStyles();
 
   const breadItems = [
     { title: "Home", href: "/" },
@@ -50,11 +50,11 @@ const About: NextPage = () => {
   const skills = [
     {
       kind: "Frontend development",
-      details: ["TypeScript / JavaScript", "React", "Sass"],
+      details: ["TypeScript", "JavaScript", "React"],
     },
     {
       kind: "Backend development",
-      details: ["PHP", "Laravel", "Java", "Spring Framework"],
+      details: ["PHP", "Laravel", "Golang", "Java", "Spring Framework"],
     },
     {
       kind: "Databases",
@@ -80,9 +80,9 @@ const About: NextPage = () => {
 
   const timelineItems = [
     {
-      title: "フロントエンドエンジニア / サーバーサイドエンジニア",
+      title: "システムエンジニア",
       position: "フリーランス",
-      period: "2022.8 - Present",
+      period: "2022.8 - 現在",
     },
     {
       title: "エンジニア",
@@ -184,7 +184,7 @@ const About: NextPage = () => {
             <Title order={2}>INTERESTS</Title>
             <ul>
               <li>ソフトウェアアーキテクチャ設計（DDD etc）</li>
-              <li>プログラミング言語（Go, Rust）</li>
+              <li>プログラミング言語（F#）</li>
             </ul>
           </section>
           <section>
