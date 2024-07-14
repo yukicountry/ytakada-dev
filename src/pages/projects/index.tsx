@@ -20,14 +20,29 @@ const ProjectsPage: NextPage = () => {
 
   const projects: Project[] = [
     {
+      title: "HR領域クラウドアプリケーション開発",
+      position: "システムエンジニア",
+      period: "2023.11 - 2024.6",
+      techStacks: [
+        "PHP",
+        "Zend Framework",
+        "Golang",
+        "JavaScript/TypeScript",
+        "MySQL",
+        "AWS",
+        "CircleCI",
+        "Docker",
+      ],
+    },
+    {
       title: "ポートフォリオサイト制作",
       period: "2023.7",
       techStacks: ["React", "Next.js", "Mantine", "Storybook", "Vercel"],
     },
     {
-      title: "金融機関向け 融資手続きペーパーレスシステム 新規開発",
-      position: "フロントエンドエンジニア / サーバーサイドエンジニア",
-      period: "2023.4 - 2023.9",
+      title: "金融系システム開発",
+      position: "システムエンジニア",
+      period: "2022.10 - 2023.9",
       techStacks: [
         "Laravel",
         "React",
@@ -39,12 +54,6 @@ const ProjectsPage: NextPage = () => {
         "AWS",
         "Docker",
       ],
-    },
-    {
-      title: "金融機関向け 年金業務手続きペーパーレスシステム 新規開発",
-      position: "フロントエンドエンジニア / サーバーサイドエンジニア",
-      period: "2022.11 - 2023.3",
-      techStacks: ["Laravel", "React", "Sass", "Bootstrap", "PostgreSQL", "AWS", "Docker"],
     },
     {
       title: "ギア不良品判定 画像解析ソフトウェア 新規開発",
