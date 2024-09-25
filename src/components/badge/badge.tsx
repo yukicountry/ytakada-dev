@@ -1,20 +1,20 @@
-import React from "react";
-import { Badge as MantineBadge, BadgeProps as MantineBadgeProps } from "@mantine/core";
+import {
+  ElementProps,
+  Badge as MantineBadge,
+  BadgeProps as MantineBadgeProps,
+} from "@mantine/core";
 
-type BadgeProps = MantineBadgeProps;
+// type BadgeProps = MantineBadgeProps;
+
+interface BadgeProps extends MantineBadgeProps, ElementProps<"div", keyof MantineBadgeProps> {}
 
 /**
  * Badgeコンポーネント
  * Mantine Badgeのラッパー
  */
-const Badge: React.FC<BadgeProps> = ({ sx, ...rest }) => {
+const Badge = (props: BadgeProps) => {
   return (
-    <MantineBadge
-      variant="gradient"
-      gradient={{ from: "blue", to: "teal" }}
-      sx={{ textTransform: "none", ...sx }}
-      {...rest}
-    />
+    <MantineBadge variant="gradient" gradient={{ from: "blue", to: "teal" }} tt="none" {...props} />
   );
 };
 

@@ -1,6 +1,6 @@
-import React from "react";
 import type { Preview } from "@storybook/react";
-import Provider from "../src/config/providers";
+import React from "react";
+import { Provider } from "../src/config/providers";
 
 const ThemeWrapper = ({ children }: { children: React.ReactNode }) => {
   return <Provider>{children}</Provider>;

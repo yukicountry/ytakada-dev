@@ -1,28 +1,19 @@
-import { Card, DefaultProps, Group, createStyles } from "@mantine/core";
+import { Card, Group } from "@mantine/core";
 import { FC } from "react";
-import ColorSchemeToggle from "../switch/color-scheme-toggle/color-scheme-toggle";
 import Anchor from "../anchor/anchor";
+import styles from "./menu.module.css";
 
 export enum MenuKind {
   Home,
   About,
-  Posts,
-  Projects,
 }
 
 type MenuProps = {
   activeMenu?: MenuKind;
-} & DefaultProps;
-
-const useStyles = createStyles(() => ({
-  navItem: {
-    display: "inline-block",
-  },
-}));
+  className?: string;
+};
 
 const Menu: FC<MenuProps> = ({ activeMenu, ...rest }) => {
-  const { classes, cx } = useStyles();
-
   const navItems = [
     {
       label: "Home",
@@ -33,16 +24,6 @@ const Menu: FC<MenuProps> = ({ activeMenu, ...rest }) => {
       label: "About",
       href: "/about",
       menuKind: MenuKind.About,
-    },
-    {
-      label: "Posts",
-      href: "/posts",
-      menuKind: MenuKind.Posts,
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-      menuKind: MenuKind.Projects,
     },
   ];
 
@@ -61,13 +42,12 @@ const Menu: FC<MenuProps> = ({ activeMenu, ...rest }) => {
           <Anchor
             key={key}
             href={item.href}
-            className={classes.navItem}
+            className={styles["nav-item"]}
             active={item.menuKind === activeMenu}
           >
             {item.label}
           </Anchor>
         ))}
-        <ColorSchemeToggle />
       </Group>
     </Card>
   );

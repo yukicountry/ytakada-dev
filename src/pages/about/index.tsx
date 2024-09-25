@@ -4,44 +4,12 @@ import Breadcrumbs from "@/components/breadcrumbs/breadcrumbs";
 import Logo from "@/components/images/logo";
 import Layout from "@/components/layout/layout";
 import { MenuKind } from "@/components/menu/menu";
-import {
-  Card,
-  Center,
-  Grid,
-  Group,
-  HoverCard,
-  Stack,
-  Text,
-  Timeline,
-  Title,
-  createStyles,
-} from "@mantine/core";
+import { Card, Center, Grid, Group, HoverCard, Stack, Text, Timeline, Title } from "@mantine/core";
 import { NextPage } from "next";
 import Head from "next/head";
-
-const useStyles = createStyles((theme) => ({
-  article: {
-    marginTop: "2rem",
-    "section + section": {
-      marginTop: "3rem",
-    },
-  },
-  introduction: {
-    display: "flex",
-    [theme.fn.smallerThan("md")]: {
-      flexDirection: "column",
-      rowGap: "2rem",
-      alignItems: "center",
-    },
-    [theme.fn.largerThan("md")]: {
-      columnGap: "4rem",
-    },
-  },
-}));
+import styles from "./index.module.css";
 
 const About: NextPage = () => {
-  const { classes } = useStyles();
-
   const breadItems = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
@@ -116,9 +84,9 @@ const About: NextPage = () => {
             ))}
           </Breadcrumbs>
         </Center>
-        <article className={classes.article}>
+        <article className={styles["article"]}>
           <section>
-            <div className={classes.introduction}>
+            <div className={styles["introduction"]}>
               <HoverCard openDelay={300} radius="md">
                 <HoverCard.Target>
                   <span>
@@ -126,42 +94,33 @@ const About: NextPage = () => {
                   </span>
                 </HoverCard.Target>
                 <HoverCard.Dropdown maw="50rem" mx="4rem" p="1.5rem">
-                  <Text size="sm" weight="bold">
+                  <Text size="sm" fw="bold">
                     #6C9BD2（みそら色）
                   </Text>
                 </HoverCard.Dropdown>
               </HoverCard>
               <div>
-                <Text weight="bold" size="lg">
+                <Text fw="bold" size="lg">
                   高田 勇気（Yuki Takada）
                 </Text>
                 <Text mt="1rem">
                   東京都在住のフリーランスエンジニアです。フロントエンド・サーバーサイドの開発業務を中心として、インフラ構築や各種クラウドサービス連携なども併せて対応可能です。
-                </Text>
-                <Text size="sm" color="dimmed" mt="1rem">
-                  <Anchor href="/about#skills" color="dimmed">
-                    Skills
-                  </Anchor>
-                  ・
-                  <Anchor href="/projects" color="dimmed">
-                    Projects
-                  </Anchor>
                 </Text>
               </div>
             </div>
           </section>
           <section id="skills">
             <Title order={2}>SKILLS</Title>
-            <Text component="h3" color="dimmed" weight="bold">
+            <Text component="h3" c="dimmed" fw="bold" mt="1rem">
               Primary skills
             </Text>
-            <Grid>
+            <Grid mt="1rem">
               {skills.map((item, key) => (
-                <Grid.Col key={key} sm={6} md={4}>
+                <Grid.Col key={key} span={{ sm: 6, md: 4 }}>
                   <Card h="100%" p="lg" withBorder={true}>
                     <Stack align="center">
                       <Text>{item.kind}</Text>
-                      <Group position="center">
+                      <Group justify="center">
                         {item.details.map((detail, key) => (
                           <Badge key={key}>{detail}</Badge>
                         ))}
@@ -171,10 +130,10 @@ const About: NextPage = () => {
                 </Grid.Col>
               ))}
             </Grid>
-            <Text component="h3" color="dimmed" weight={700}>
+            <Text component="h3" c="dimmed" fw={700} mt="1rem">
               Also know
             </Text>
-            <Group>
+            <Group mt="1rem">
               {alsoKnow.map((item, key) => (
                 <Badge key={key}>{item}</Badge>
               ))}
@@ -191,24 +150,19 @@ const About: NextPage = () => {
             <Title order={2}>LICENSES</Title>
             <Grid gutter="sm" mt="1rem">
               {licenses.map((license, key) => (
-                <Grid.Col key={key} sm={6} md={4}>
+                <Grid.Col key={key} span={{ sm: 6, md: 4 }}>
                   <Card h="100%" withBorder={true}>
                     <Text>{license.name}</Text>
-                    <Text color="dimmed" size="xs">
+                    <Text c="dimmed" size="xs">
                       {license.organization}
                     </Text>
                     {license.certification && (
-                      <Text color="dimmed" size="xs">
+                      <Text c="dimmed" size="xs">
                         {license.certification}
                       </Text>
                     )}
                     {license.certificationLink && (
-                      <Anchor
-                        color="dimmed"
-                        size="xs"
-                        href={license.certificationLink}
-                        display="block"
-                      >
+                      <Anchor c="dimmed" size="xs" href={license.certificationLink} display="block">
                         認定情報
                       </Anchor>
                     )}
@@ -222,10 +176,10 @@ const About: NextPage = () => {
             <Timeline mt="1.5rem" bulletSize={16} lineWidth={2}>
               {timelineItems.map((item, key) => (
                 <Timeline.Item title={item.title} key={key}>
-                  <Text color="dimmed" size="sm">
+                  <Text c="dimmed" size="sm">
                     {item.position}
                   </Text>
-                  <Text color="dimmed" size="xs" mt={4}>
+                  <Text c="dimmed" size="xs" mt={4}>
                     {item.period}
                   </Text>
                 </Timeline.Item>

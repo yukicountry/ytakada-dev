@@ -1,24 +1,24 @@
 import { relatedLinks, socialLinks } from "@/config/constants";
-import { Anchor, DefaultProps, Text } from "@mantine/core";
+import { Anchor, Text } from "@mantine/core";
 import React from "react";
 
-const PoweredBy: React.FC<DefaultProps> = (props) => {
+const PoweredBy = ({ className }: { className?: string }) => {
   return (
-    <Text color="dimmed" size="sm" {...props}>
+    <Text c="dimmed" size="sm" className={className}>
       Built with{" "}
-      <Anchor href={relatedLinks.nextJs} color="inherit" target="_blank" rel="noopener">
+      <Anchor href={relatedLinks.nextJs} c="inherit" target="_blank" rel="noopener">
         Next.js
       </Anchor>{" "}
       &{" "}
-      <Anchor href={relatedLinks.mantine} color="inherit" target="_blank" rel="noopener">
+      <Anchor href={relatedLinks.mantine} c="inherit" target="_blank" rel="noopener">
         Mantine
       </Anchor>
       , Code on{" "}
-      <Anchor href={socialLinks.github} color="inherit" target="_blank" rel="noopener">
+      <Anchor href={socialLinks.github} c="inherit" target="_blank" rel="noopener">
         GitHub
       </Anchor>
       . Privacy policy is{" "}
-      <Anchor href="/privacy" color="inherit">
+      <Anchor href="/privacy" c="inherit">
         here
       </Anchor>
       .

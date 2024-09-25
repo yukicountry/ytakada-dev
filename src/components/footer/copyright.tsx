@@ -1,11 +1,11 @@
-import { Anchor, DefaultProps, Text } from "@mantine/core";
+import { Anchor, Text } from "@mantine/core";
 import React from "react";
 
-const Copyright: React.FC<DefaultProps> = (props) => {
+const Copyright = ({ className }: { className?: string }) => {
   return (
-    <Text color="dimmed" size="sm" {...props}>
+    <Text c="dimmed" size="sm" className={className}>
       Copyright 2024{" "}
-      <Anchor href="/" target="_blank" rel="noopener" color="inherit">
+      <Anchor href="/" target="_blank" rel="noopener" c="inherit">
         ytakada.dev
       </Anchor>
     </Text>

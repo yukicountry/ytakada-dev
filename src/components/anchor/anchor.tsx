@@ -1,33 +1,22 @@
 import {
-  AnchorProps as MantineAnchorProps,
+  ElementProps,
   Anchor as MantineAnchor,
-  createStyles,
+  AnchorProps as MantineAnchorProps,
 } from "@mantine/core";
-import { FC } from "react";
+import clsx from "clsx";
+import styles from "./anchor.module.css";
 
-type AnchorProps = {
-  href?: string;
-  target?: string;
+interface AnchorProps extends MantineAnchorProps, ElementProps<"a", keyof MantineAnchorProps> {
   active?: boolean;
-  rel?: string;
-} & MantineAnchorProps;
+}
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    textDecoration: "none",
-    color: "inherit",
-    ":hover, &.active": {
-      color: theme.colors.cyan[6],
-      transition: "0.3s ease",
-    },
-  },
-}));
-
-const Anchor: FC<AnchorProps> = ({ active, className, ...rest }) => {
-  const { classes, cx } = useStyles();
-
+const Anchor = ({ active, className, ...rest }: AnchorProps) => {
   return (
-    <MantineAnchor underline={false} className={cx(classes.root, active && "active")} {...rest} />
+    <MantineAnchor
+      underline="never"
+      className={clsx(styles["container"], active && styles["active"])}
+      {...rest}
+    />
   );
 };
 

@@ -1,39 +1,15 @@
-import { createStyles } from "@mantine/core";
+import clsx from "clsx";
 import { ComponentPropsWithoutRef, FC, ReactElement, cloneElement } from "react";
+import styles from "./icon-button.module.css";
 
 type IconButtonProps = Omit<ComponentPropsWithoutRef<"div">, "children"> & {
   children: ReactElement;
 };
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "3rem",
-    height: "3rem",
-    borderRadius: "50%",
-    color: theme.colors.dark[1],
-    backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
-    cursor: "pointer",
-    transition: "0.3s ease",
-    "&:hover": {
-      color: theme.white,
-      backgroundColor: theme.colors.cyan[6],
-    },
-  },
-  icon: {
-    width: "50%",
-    height: "50%",
-  },
-}));
+const IconButton = ({ children }: IconButtonProps) => {
+  const icon = cloneElement(children, { className: clsx(children.props.className, styles.icon) });
 
-const IconButton: FC<IconButtonProps> = ({ children }) => {
-  const { cx, classes } = useStyles();
-
-  const icon = cloneElement(children, { className: cx(children.props.className, classes.icon) });
-
-  return <div className={classes.root}>{icon}</div>;
+  return <div className={styles["container"]}>{icon}</div>;
 };
 
 export default IconButton;

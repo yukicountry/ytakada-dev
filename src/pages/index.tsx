@@ -3,70 +3,14 @@ import IconButton from "@/components/button/icon-button/icon-button";
 import Copyright from "@/components/footer/copyright";
 import PoweredBy from "@/components/footer/powered-by";
 import Logo from "@/components/images/logo";
-import ColorSchemeToggle from "@/components/switch/color-scheme-toggle/color-scheme-toggle";
 import { socialLinks } from "@/config/constants";
-import { Center, Container, Group, Stack, Title, createStyles } from "@mantine/core";
+import { Center, Container, Group, Stack, Title } from "@mantine/core";
 import { NextPage } from "next";
 import Head from "next/head";
 import { TbBrandGithub, TbBrandLinkedin, TbMail } from "react-icons/tb";
-
-const useStyles = createStyles((theme) => ({
-  root: {
-    position: "relative",
-    height: "100dvh",
-    padding: "1rem",
-    display: "flex",
-    flexDirection: "column",
-  },
-  contentWrapper: {
-    flex: 1,
-    display: "flex",
-    [theme.fn.smallerThan("md")]: {
-      flexDirection: "column",
-      alignItems: "center",
-      rowGap: "2rem",
-    },
-    [theme.fn.largerThan("md")]: {
-      columnGap: "4rem",
-    },
-  },
-  stack: {
-    [theme.fn.smallerThan("md")]: {
-      alignItems: "center",
-      "*": {
-        textAlign: "center",
-      },
-    },
-  },
-  logo: {
-    [theme.fn.smallerThan("md")]: {
-      width: "8rem",
-      height: "8rem",
-    },
-    [theme.fn.largerThan("md")]: {
-      width: "12rem",
-      height: "12rem",
-    },
-  },
-  footer: {
-    display: "flex",
-    [theme.fn.smallerThan("md")]: {
-      justifyContent: "center",
-    },
-    [theme.fn.largerThan("md")]: {
-      justifyContent: "space-between",
-    },
-  },
-  poweredBy: {
-    [theme.fn.smallerThan("md")]: {
-      display: "none",
-    },
-  },
-}));
+import styles from "./index.module.css";
 
 const Home: NextPage = () => {
-  const { cx, classes } = useStyles();
-
   const links = [
     {
       href: socialLinks.github,
@@ -87,14 +31,6 @@ const Home: NextPage = () => {
       href: "/about",
       label: "About",
     },
-    {
-      href: "/posts",
-      label: "Posts",
-    },
-    {
-      href: "/projects",
-      label: "Projects",
-    },
   ];
 
   return (
@@ -103,10 +39,10 @@ const Home: NextPage = () => {
         <title>ytakada.dev</title>
       </Head>
       <main>
-        <Container className={classes.root}>
-          <Center className={classes.contentWrapper}>
-            <Logo className={classes.logo} />
-            <Stack className={classes.stack}>
+        <Container className={styles["container"]}>
+          <Center className={styles["content-wrapper"]}>
+            <Logo className={styles["logo"]} />
+            <Stack className={styles["stack"]}>
               <Title order={1}>Yuki Takada</Title>
               <Title order={2}>Software developer based in Tokyo.</Title>
               <Group>
@@ -125,11 +61,10 @@ const Home: NextPage = () => {
               </Group>
             </Stack>
           </Center>
-          <footer className={classes.footer}>
-            <PoweredBy className={classes.poweredBy} />
+          <footer className={styles["footer"]}>
+            <PoweredBy className={styles["powered-by"]} />
             <Copyright />
           </footer>
-          <ColorSchemeToggle pos="absolute" top="1rem" right="1rem" />
         </Container>
       </main>
     </>

@@ -1,39 +1,37 @@
 import { socialLinks } from "@/config/constants";
-import { Group, createStyles } from "@mantine/core";
+import { Group } from "@mantine/core";
 import React, { ComponentPropsWithoutRef } from "react";
 import { TbBrandGithub, TbBrandLinkedin, TbMail } from "react-icons/tb";
-import Copyright from "./copyright";
-import PoweredBy from "./powered-by";
 import IconButton from "../button/icon-button/icon-button";
+import Copyright from "./copyright";
+import styles from "./footer.module.css";
+import PoweredBy from "./powered-by";
+import clsx from "clsx";
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "2rem",
-    alignItems: "center",
-    [theme.fn.largerThan("md")]: {
-      alignItems: "stretch",
-    },
-  },
-  bottom: {
-    display: "flex",
-    [theme.fn.largerThan("md")]: {
-      justifyContent: "space-between",
-    },
-  },
-  hiddenMobile: {
-    [theme.fn.smallerThan("md")]: {
-      display: "none",
-    },
-  },
-}));
+// const useStyles = createStyles((theme) => ({
+//   root: {
+//     display: "flex",
+//     flexDirection: "column",
+//     rowGap: "2rem",
+//     alignItems: "center",
+//     [theme.fn.largerThan("md")]: {
+//       alignItems: "stretch",
+//     },
+//   },
+//   bottom: {
+//     display: "flex",
+//     [theme.fn.largerThan("md")]: {
+//       justifyContent: "space-between",
+//     },
+//   },
+//   hiddenMobile: {
+//     [theme.fn.smallerThan("md")]: {
+//       display: "none",
+//     },
+//   },
+// }));
 
-type FooterProps = ComponentPropsWithoutRef<"footer">;
-
-const Footer: React.FC<FooterProps> = ({ className, ...rest }) => {
-  const { cx, classes } = useStyles();
-
+const Footer = ({ className, ...rest }: ComponentPropsWithoutRef<"footer">) => {
   const links = [
     {
       href: socialLinks.github,
@@ -50,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ className, ...rest }) => {
   ];
 
   return (
-    <footer className={cx(className, classes.root)} {...rest}>
+    <footer className={clsx(className, styles["container"])} {...rest}>
       <Group>
         {links.map((link, key) => (
           <a key={key} href={link.href} target="_blank" rel="noopener">
@@ -58,8 +56,8 @@ const Footer: React.FC<FooterProps> = ({ className, ...rest }) => {
           </a>
         ))}
       </Group>
-      <div className={classes.bottom}>
-        <PoweredBy className={classes.hiddenMobile} />
+      <div className={styles["bottom"]}>
+        <PoweredBy className={styles["hidden-mobile"]} />
         <Copyright />
       </div>
     </footer>
