@@ -24,8 +24,12 @@ const Page = () => {
 
   const skills = [
     {
+      kind: "System Design",
+      details: ["システム設計", "アーキテクチャ設計", "データベース設計"],
+    },
+    {
       kind: "Frontend development",
-      details: ["TypeScript", "JavaScript", "React"],
+      details: ["TypeScript", "JavaScript", "React", "Next.js"],
     },
     {
       kind: "Backend development",
@@ -33,11 +37,13 @@ const Page = () => {
     },
     {
       kind: "Databases",
-      details: ["MySQL", "PostgreSQL"],
+      details: ["PostgreSQL", "MySQL"],
+    },
+    {
+      kind: "Infrastructures",
+      details: ["AWS"],
     },
   ];
-
-  const alsoKnow = ["Next.js", "AWS", "Linux", "Docker", "Python"];
 
   const licenses = [
     {
@@ -60,7 +66,7 @@ const Page = () => {
       period: "2022.8 - 現在",
     },
     {
-      title: "エンジニア",
+      title: "システムエンジニア",
       position: "株式会社アルジェブラテクノロジーズ",
       period: "2020.4 - 2022.7",
     },
@@ -96,16 +102,14 @@ const Page = () => {
                 高田 勇気（Yuki Takada）
               </Text>
               <Text mt="1rem">
-                東京都在住のフリーランスエンジニアです。フロントエンド・サーバーサイドの開発業務を中心として、インフラ構築や各種クラウドサービス連携なども併せて対応可能です。
+                システムエンジニア、バックエンドエンジニア、フロントエンドエンジニア
               </Text>
+              <Text mt="1rem">東京都在住</Text>
             </div>
           </div>
         </section>
         <section id="skills">
           <Title order={2}>SKILLS</Title>
-          <Text component="h3" c="dimmed" fw="bold" mt="1rem">
-            Primary skills
-          </Text>
           <Grid mt="1rem">
             {skills.map((item, key) => (
               <GridCol key={key} span={{ sm: 6, md: 4 }}>
@@ -122,21 +126,6 @@ const Page = () => {
               </GridCol>
             ))}
           </Grid>
-          <Text component="h3" c="dimmed" fw={700} mt="1rem">
-            Also know
-          </Text>
-          <Group mt="1rem">
-            {alsoKnow.map((item, key) => (
-              <Badge key={key}>{item}</Badge>
-            ))}
-          </Group>
-        </section>
-        <section>
-          <Title order={2}>INTERESTS</Title>
-          <ul>
-            <li>ソフトウェアアーキテクチャ設計（DDD etc）</li>
-            <li>プログラミング言語（F#）</li>
-          </ul>
         </section>
         <section>
           <Title order={2}>LICENSES</Title>
