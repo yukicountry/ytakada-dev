@@ -1,7 +1,7 @@
 import { Anchor } from "@/modules/common/components/anchor";
 import clsx from "clsx";
 import { ComponentPropsWithoutRef } from "react";
-import { menuKind } from "../types";
+import { navItems } from "../data";
 import styles from "./presentation.module.css";
 
 export const MenuMb = ({
@@ -9,23 +9,10 @@ export const MenuMb = ({
   className,
   ...rest
 }: ComponentPropsWithoutRef<"div"> & { activeMenu?: string }) => {
-  const navItems = [
-    {
-      label: "Home",
-      href: "/",
-      menuKind: menuKind.home,
-    },
-    {
-      label: "About",
-      href: "/about",
-      menuKind: menuKind.about,
-    },
-  ];
-
   return (
     <nav className={clsx(styles["container"], className)} {...rest}>
       {navItems.map((item, key) => (
-        <Anchor key={key} href={item.href} active={item.menuKind === activeMenu}>
+        <Anchor key={key} href={item.href} active={item.segment === activeMenu}>
           {item.label}
         </Anchor>
       ))}

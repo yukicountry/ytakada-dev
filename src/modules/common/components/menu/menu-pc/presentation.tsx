@@ -1,22 +1,9 @@
 import { Anchor } from "@/modules/common/components/anchor";
 import { Card, Group } from "@mantine/core";
-import { menuKind } from "../types";
+import { navItems } from "../data";
 import styles from "./presentation.module.css";
 
 export const MenuPc = ({ activeMenu, ...rest }: { activeMenu?: string; className?: string }) => {
-  const navItems = [
-    {
-      label: "Home",
-      href: "/",
-      menuKind: menuKind.home,
-    },
-    {
-      label: "About",
-      href: "/about",
-      menuKind: menuKind.about,
-    },
-  ];
-
   return (
     <Card
       component="nav"
@@ -33,7 +20,7 @@ export const MenuPc = ({ activeMenu, ...rest }: { activeMenu?: string; className
             key={key}
             href={item.href}
             className={styles["nav-item"]}
-            active={item.menuKind === activeMenu}
+            active={item.segment === activeMenu}
           >
             {item.label}
           </Anchor>

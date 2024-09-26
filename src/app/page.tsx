@@ -28,6 +28,10 @@ const Page = () => {
       href: "/about",
       label: "About",
     },
+    {
+      href: "/scraps",
+      label: "Scraps",
+    },
   ];
 
   return (
