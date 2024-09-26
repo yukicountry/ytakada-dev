@@ -1,14 +1,14 @@
 import { Anchor } from "@/modules/common/components/anchor";
 import clsx from "clsx";
 import { ComponentPropsWithoutRef } from "react";
-import { menuKind, MenuKind } from "../types";
+import { menuKind } from "../types";
 import styles from "./presentation.module.css";
 
 export const MenuMb = ({
   activeMenu,
   className,
   ...rest
-}: ComponentPropsWithoutRef<"div"> & { activeMenu?: MenuKind }) => {
+}: ComponentPropsWithoutRef<"div"> & { activeMenu?: string }) => {
   const navItems = [
     {
       label: "Home",

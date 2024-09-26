@@ -1,9 +1,9 @@
 import { Anchor } from "@/modules/common/components/anchor";
 import { Card, Group } from "@mantine/core";
-import { MenuKind, menuKind } from "../types";
+import { menuKind } from "../types";
 import styles from "./presentation.module.css";
 
-export const MenuPc = ({ activeMenu, ...rest }: { activeMenu?: MenuKind; className?: string }) => {
+export const MenuPc = ({ activeMenu, ...rest }: { activeMenu?: string; className?: string }) => {
   const navItems = [
     {
       label: "Home",
