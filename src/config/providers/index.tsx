@@ -8,7 +8,12 @@ type ProviderProps = {
 export const Provider = ({ children }: ProviderProps) => {
   const theme = createTheme({
     fontFamily: "'Noto Sans JP', sans-serif",
+    primaryColor: "cyan",
   });
 
-  return <MantineProvider theme={theme}>{children}</MantineProvider>;
+  return (
+    <MantineProvider theme={theme} forceColorScheme="dark">
+      {children}
+    </MantineProvider>
+  );
 };
