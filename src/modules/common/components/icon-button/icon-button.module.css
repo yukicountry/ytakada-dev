@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: var(--mantine-color-dark-1);
+  background-color: var(--mantine-color-dark-4);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.container:hover {
+  color: var(--mantine-color-white);
+  background-color: var(--mantine-color-cyan-7);
+}
+
+.icon {
+  width: 50%;
+  height: 50%;
+}

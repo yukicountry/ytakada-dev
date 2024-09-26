@@ -1,0 +1,10 @@
+.container {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container:hover,
+.container.active {
+  color: var(--mantine-color-cyan-6);
+  transition: 0.3s ease;
+}

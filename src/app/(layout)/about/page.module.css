@@ -1,0 +1,19 @@
+.article {
+  margin-top: 2rem;
+
+  section + section {
+    margin-top: 3rem;
+  }
+}
+
+.introduction {
+  display: flex;
+  @media (max-width: $mantine-breakpoint-md) {
+    flex-direction: column;
+    row-gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: $mantine-breakpoint-md) {
+    column-gap: 4rem;
+  }
+}

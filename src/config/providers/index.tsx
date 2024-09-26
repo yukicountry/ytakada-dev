@@ -1,36 +1,19 @@
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
+import { createTheme, MantineProvider } from "@mantine/core";
 import { ReactNode } from "react";
 
 type ProviderProps = {
   children: ReactNode;
 };
 
-const Provider = ({ children }: ProviderProps) => {
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: "mantine-color-scheme",
-    defaultValue: "dark",
-    getInitialValueInEffect: true,
+export const Provider = ({ children }: ProviderProps) => {
+  const theme = createTheme({
+    fontFamily: "'Noto Sans JP', sans-serif",
+    primaryColor: "cyan",
   });
 
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
-
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider
-        withGlobalStyles={true}
-        withNormalizeCSS={true}
-        theme={{
-          colorScheme,
-          fontFamily: "'Noto Sans JP', sans-serif",
-          primaryColor: "cyan",
-        }}
-      >
-        {children}
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <MantineProvider theme={theme} forceColorScheme="dark">
+      {children}
+    </MantineProvider>
   );
 };
-
-export default Provider;
