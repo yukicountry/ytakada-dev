@@ -7,9 +7,9 @@ export const ScrapPreview = ({ scrap }: { scrap: ScrapPreviewModel }) => {
   return (
     <Box component="a" href={`/scraps/${scrap.slug}`} className={styles["container"]}>
       <Group gap="xl">
-        <div className={styles["emoji-wrapper"]}>
+        <Box className={styles["emoji-wrapper"]}>
           <span className={styles["emoji"]}>{scrap.emoji}</span>
-        </div>
+        </Box>
         <Stack>
           <Text size="xl" fw="bold">
             {scrap.title}

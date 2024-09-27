@@ -3,7 +3,7 @@ import { ColorSchemeScript } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 
-export const fetchCache = "default-no-store";
+export const fetchCache = "default-cache";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (

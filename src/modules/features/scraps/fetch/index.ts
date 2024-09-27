@@ -16,6 +16,7 @@ export const fetchScraps = async ({ tags }: { tags?: string[] }): Promise<ScrapP
             },
           },
         },
+        sort: "createdAt:desc",
       },
     },
   });
@@ -64,7 +65,11 @@ export const fetchTags = async (): Promise<Tag[]> => {
   const client = createApiClient({
     path: "/tags",
     method: "get",
-    params: {},
+    params: {
+      query: {
+        sort: "name:asc",
+      },
+    },
   });
 
   const response = await client.sendRequest();

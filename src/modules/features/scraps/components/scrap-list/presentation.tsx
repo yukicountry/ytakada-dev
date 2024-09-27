@@ -5,8 +5,8 @@ import { ScrapPreview } from "../scrap-preview";
 export const ScrapList = ({ scraps }: { scraps: ScrapPreviewModel[] }) => {
   return (
     <Grid gutter="xl">
-      {scraps.map((scrap, index) => (
-        <GridCol span={{ base: 12, md: 6 }} key={index}>
+      {scraps.map((scrap) => (
+        <GridCol span={{ base: 12, md: 6 }} key={scrap.slug}>
           <ScrapPreview scrap={scrap} />
         </GridCol>
       ))}
