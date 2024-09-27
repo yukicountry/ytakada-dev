@@ -1,5 +1,3 @@
-export const contentsDir = process.env.CONTENTS_DIR ?? "";
-
 export const socialLinks = {
   mail: "mailto:mail@ytakada.dev",
   github: "https://github.com/yukicountry",
@@ -10,3 +8,6 @@ export const relatedLinks = {
   nextJs: "https://nextjs.org/",
   mantine: "https://mantine.dev/",
 };
+
+export const apiToken = process.env.API_TOKEN;
+export const apiBaseUrl = process.env.API_BASE_URL;
