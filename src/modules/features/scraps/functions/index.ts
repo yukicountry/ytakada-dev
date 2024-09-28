@@ -12,6 +12,7 @@ export const convertMarkdownToHtml = async (markdown: string) => {
     .use(rehypeSlug)
     .use(rehypePrettyCode, {
       theme: "one-dark-pro",
+      keepBackground: true,
     })
     .use(rehypeStringify)
     .process(markdown);

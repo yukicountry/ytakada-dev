@@ -16,7 +16,7 @@ export const ScrapPreview = ({ scrap }: { scrap: ScrapPreviewModel }) => {
           </Text>
           <Group gap="sm">
             {scrap.tags.map((tag) => (
-              <Tag tag={tag} />
+              <Tag tag={tag} key={tag.name} />
             ))}
           </Group>
         </Stack>
