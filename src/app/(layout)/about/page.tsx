@@ -1,10 +1,9 @@
 import { Anchor } from "@/modules/common/components/anchor";
 import { Badge } from "@/modules/common/components/badge";
-import { Breadcrumbs } from "@/modules/common/components/breadcrumbs";
 import { Logo } from "@/modules/common/components/logo";
 import {
+  Box,
   Card,
-  Center,
   Grid,
   GridCol,
   Group,
@@ -17,11 +16,6 @@ import {
 import styles from "./page.module.css";
 
 const Page = () => {
-  const breadItems = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
-  ];
-
   const skills = [
     {
       kind: "System Design",
@@ -83,16 +77,7 @@ const Page = () => {
   ];
 
   return (
-    <>
-      <Center>
-        <Breadcrumbs>
-          {breadItems.map((item, key) => (
-            <Anchor size="sm" key={key} href={item.href}>
-              {item.title}
-            </Anchor>
-          ))}
-        </Breadcrumbs>
-      </Center>
+    <Box mt="xl" component="main">
       <article className={styles["article"]}>
         <section>
           <div className={styles["introduction"]}>
@@ -168,7 +153,7 @@ const Page = () => {
           </Timeline>
         </section>
       </article>
-    </>
+    </Box>
   );
 };
 

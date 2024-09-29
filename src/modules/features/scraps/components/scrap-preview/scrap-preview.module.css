@@ -1,0 +1,24 @@
+.container {
+  text-decoration: none;
+
+  &,
+  &:visited,
+  &:active,
+  &:hover {
+    color: inherit;
+  }
+
+  .emoji {
+    font-size: 36px;
+  }
+
+  .emoji-wrapper {
+    width: 92px;
+    height: 92px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mantine-color-dark-5);
+    border-radius: 10px;
+  }
+}
